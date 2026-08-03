@@ -1,26 +1,73 @@
 # Kamra Saathi
 
-Student housing platform with a static homepage and admin backend.
+Kamra Saathi is a student housing discovery platform that lets users browse verified rooms and PGs, compare listings, and book rooms, while admins manage the homepage content from a dashboard.
+
+## Overview
+
+This project combines:
+
+- A public landing page and room listing experience in the root frontend
+- A secure Express backend with JWT-based authentication
+- A content management admin panel to update homepage sections
+- JSON-based persistence for content and user data
+
+## Tech Stack
+
+- Frontend: HTML, CSS, JavaScript
+- Backend: Node.js, Express
+- Auth: JWT + bcryptjs
+- Storage: Local JSON files in the backend data folder
 
 ## Project Structure
 
-```
+```text
 kamrasaathi/
-├── index.html          # Public homepage
-├── style.css           # Homepage styles
-├── admin/              # Admin panel UI
-│   ├── login.html
+├── index.html              # Public homepage
+├── style.css               # Homepage styles
+├── app.js                  # Public UI rendering logic
+├── admin/                  # Admin dashboard UI
 │   ├── index.html
+│   ├── login.html
 │   ├── admin.css
 │   └── admin.js
-└── backend/            # Express API server
-    ├── server.js
-    ├── routes/
+└── backend/
+    ├── server.js           # Express server entry point
+    ├── package.json
     ├── data/
-    └── ...
+    │   ├── content.json    # Homepage content source
+    │   └── users.json      # Users and bookings data
+    ├── middleware/
+    ├── routes/
+    └── utils/
 ```
 
-## Getting Started
+## Features
+
+### Public website
+
+- Hero section with search and quick tags
+- Smart search feature cards
+- Room listing grid with verified badges
+- Compare section for room options
+- Featured room / property details panel
+- Testimonials and blog sections
+- User login, registration, and room booking flow
+
+### Admin panel
+
+Admins can manage:
+
+- Site settings
+- Hero content
+- Stats cards
+- Smart features
+- Room listings
+- Featured room block
+- Testimonials
+- Blogs
+- Trust banner content
+
+## Run the Project
 
 ### 1. Install dependencies
 
@@ -29,58 +76,67 @@ cd backend
 npm install
 ```
 
-### 2. Configure environment (optional)
-
-Copy `.env.example` to `.env` and update values:
-
-```bash
-cp .env.example .env
-```
-
-Default admin credentials:
-- **Email:** admin@kamrasaathi.in
-- **Password:** admin123
-
-### 3. Start the server
+### 2. Start the server
 
 ```bash
 npm start
 ```
 
-### 4. Open in browser
+Or for development with auto-reload:
 
-- **Homepage:** http://localhost:3000/index.html
-- **Admin Login:** http://localhost:3000/admin/login.html
-- **Admin Dashboard:** http://localhost:3000/admin/index.html
+```bash
+npm run dev
+```
 
-## Admin Panel Features
+### 3. Open the app
 
-The admin panel lets you manage all homepage content:
+- Homepage: http://localhost:3000/
+- Admin login: http://localhost:3000/admin/login.html
+- Admin dashboard: http://localhost:3000/admin/index.html
 
-| Section | What you can edit |
-|---------|-------------------|
-| Site Settings | Brand, phone, email, support hours |
-| Hero | Title, subtitle, tags, hero image |
-| Stats | 4 homepage stat cards |
-| Features | Smart search feature cards |
-| Rooms | Add, edit, delete room listings |
-| Featured Room | Room details section |
-| Testimonials | Student reviews |
-| Blogs | Blog posts |
-| Trust Banner | Trust section content |
+## Default Admin Credentials
 
-## API Endpoints
+The backend auto-creates an admin user on first run if needed.
 
-| Method | Endpoint | Auth | Description |
-|--------|----------|------|-------------|
-| POST | `/api/auth/login` | No | Admin login |
-| GET | `/api/content` | No | Get all homepage content |
-| PUT | `/api/content` | Yes | Replace all content |
-| PATCH | `/api/content/section/:section` | Yes | Update one section |
-| POST/PUT/DELETE | `/api/content/rooms/:id?` | Yes | Manage rooms |
-| POST/PUT/DELETE | `/api/content/testimonials/:id?` | Yes | Manage testimonials |
-| POST/PUT/DELETE | `/api/content/blogs/:id?` | Yes | Manage blogs |
+- Email: admin@kamrasaathi.in
+- Password: admin123
 
-## Next Steps
+> You can override these values with environment variables such as `ADMIN_EMAIL`, `ADMIN_PASSWORD`, and `JWT_SECRET`.
 
-Connect the public `index.html` to fetch content from `/api/content` so admin changes appear live on the homepage.
+## API Summary
+
+The backend exposes the following use cases:
+
+| Method | Endpoint | Auth | Purpose |
+|--------|----------|------|---------|
+| POST | `/api/auth/register` | No | Register a new user |
+| POST | `/api/auth/login` | No | Login and receive JWT |
+| GET | `/api/auth/me` | Yes | Get logged-in user profile |
+| GET | `/api/auth/my-bookings` | Yes | Get booked rooms |
+| POST | `/api/auth/book-room` | Yes | Book a room |
+| GET | `/api/content` | No | Fetch homepage content |
+| PATCH | `/api/content/section/:section` | Yes | Update one content section |
+| POST | `/api/content/rooms` | Yes | Create room listing |
+| PUT | `/api/content/rooms/:id` | Yes | Update room listing |
+| DELETE | `/api/content/rooms/:id` | Yes | Delete room listing |
+| POST | `/api/content/testimonials` | Yes | Create testimonial |
+| PUT | `/api/content/testimonials/:id` | Yes | Update testimonial |
+| DELETE | `/api/content/testimonials/:id` | Yes | Delete testimonial |
+| POST | `/api/content/blogs` | Yes | Create blog |
+| PUT | `/api/content/blogs/:id` | Yes | Update blog |
+| DELETE | `/api/content/blogs/:id` | Yes | Delete blog |
+| GET | `/api/health` | No | Health check |
+
+## Data Files
+
+The backend stores its data in local JSON files:
+
+- `backend/data/content.json` — all public homepage content
+- `backend/data/users.json` — authentication users and booking records
+
+## Notes
+
+- The frontend is served statically by the Express server.
+- The admin panel writes to the same content configuration used by the frontend.
+- The project is intended as a lightweight CMS-style student housing website rather than a full production-grade multi-service platform.
+
