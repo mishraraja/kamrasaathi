@@ -1,0 +1,233 @@
+{
+  "site": {
+    "brandName": "KamraSaathi",
+    "tagline": "Find. Compare. Move In.",
+    "phone": "+91 98765 43210",
+    "email": "support@kamrasaathi.in",
+    "supportHours": "Mon - Sat: 10AM - 7PM",
+    "whatsapp": "+919876543210"
+  },
+  "hero": {
+    "title": "Find Verified Rooms & PGs Near Your College",
+    "titleHighlight": "Verified",
+    "subtitle": "Search rooms, compare options, and connect with our team easily.",
+    "searchPlaceholder": "Search by Area / College / Coaching",
+    "quickTags": [
+      "Dwarka",
+      "DU",
+      "Mukherjee Nagar",
+      "Noida",
+      "Kota"
+    ],
+    "badgeText": "Verified Student Housing Platform",
+    "heroImage": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "studentsSettled": "500+",
+    "studentsLabel": "Students Settled"
+  },
+  "stats": [
+    {
+      "id": "1",
+      "icon": "fa-users",
+      "iconClass": "icon-purple",
+      "value": "500+",
+      "label": "Students Settled"
+    },
+    {
+      "id": "2",
+      "icon": "fa-building-circle-check",
+      "iconClass": "icon-blue",
+      "value": "50+",
+      "label": "Verified Rooms"
+    },
+    {
+      "id": "3",
+      "icon": "fa-location-dot",
+      "iconClass": "icon-green",
+      "value": "10+",
+      "label": "Areas Covered"
+    },
+    {
+      "id": "4",
+      "icon": "fa-shield-halved",
+      "iconClass": "icon-orange",
+      "value": "100%",
+      "label": "Verified Listings"
+    }
+  ],
+  "features": [
+    {
+      "id": "1",
+      "icon": "fa-magnifying-glass",
+      "iconClass": "icon-purple",
+      "title": "Live Search Results",
+      "description": "Dwarka mein 7 rooms available"
+    },
+    {
+      "id": "2",
+      "icon": "fa-wand-magic-sparkles",
+      "iconClass": "icon-blue",
+      "title": "Smart Suggestions",
+      "description": "Personalized recommendations"
+    },
+    {
+      "id": "3",
+      "icon": "fa-clock-rotate-left",
+      "iconClass": "icon-green",
+      "title": "Recent Searches",
+      "description": "Quick access to viewed locations"
+    }
+  ],
+  "rooms": [
+    {
+      "id": "1",
+      "title": "Modern PG in Dwarka",
+      "distance": "0.8 km away",
+      "price": 8500,
+      "image": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=400&q=80",
+      "tags": [
+        "Mess Included",
+        "AC Room"
+      ],
+      "roomType": "PG",
+      "mess": true,
+      "ac": true,
+      "foodIncluded": true,
+      "verified": true,
+      "active": true
+    },
+    {
+      "id": "2",
+      "title": "1RK Near DU",
+      "distance": "1.2 km away",
+      "price": 12000,
+      "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=400&q=80",
+      "tags": [
+        "No Mess",
+        "Non-AC"
+      ],
+      "roomType": "1RK",
+      "mess": false,
+      "ac": false,
+      "foodIncluded": false,
+      "verified": true,
+      "active": true
+    },
+    {
+      "id": "3",
+      "title": "Student Flat in Kota",
+      "distance": "500m away",
+      "price": 15000,
+      "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=400&q=80",
+      "tags": [
+        "Food Available",
+        "AC Room"
+      ],
+      "roomType": "Flat",
+      "mess": true,
+      "ac": true,
+      "foodIncluded": true,
+      "verified": true,
+      "active": true
+    }
+  ],
+  "featuredRoom": {
+    "location": "Mukherjee Nagar, Near Coaching Hub, Delhi",
+    "rent": 10500,
+    "messCharges": 2000,
+    "amenities": "WiFi, AC, RO Water, Study Table",
+    "mainImage": "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=400&q=80",
+    "thumbnails": [
+      "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=200&q=80",
+      "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=200&q=80"
+    ]
+  },
+  "testimonials": [
+    {
+      "id": "1",
+      "name": "Rahul",
+      "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+      "rating": 5,
+      "text": "Kamra Saathi made finding a student room simple, safe, and fast."
+    },
+    {
+      "id": "2",
+      "name": "Priya",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80",
+      "rating": 5,
+      "text": "Kamra Saathi made finding a student room simple, safe, and fast."
+    },
+    {
+      "id": "3",
+      "name": "Aman",
+      "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=120&q=80",
+      "rating": 5,
+      "text": "Kamra Saathi made finding a student room simple, safe, and fast."
+    }
+  ],
+  "blogs": [
+    {
+      "id": "1",
+      "title": "PG lene se pehle 5 cheezein check karein",
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=300&q=80",
+      "link": "#",
+      "active": true
+    },
+    {
+      "id": "2",
+      "title": "Mess quality kaise check karein",
+      "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=300&q=80",
+      "link": "#",
+      "active": true
+    },
+    {
+      "id": "3",
+      "title": "Student budget guide",
+      "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=300&q=80",
+      "link": "#",
+      "active": true
+    }
+  ],
+  "trustBanner": {
+    "title": "Why Students Trust Kamra Saathi",
+    "items": [
+      {
+        "id": "1",
+        "icon": "fa-user-shield",
+        "text": "Verified by Kamra Saathi Team"
+      },
+      {
+        "id": "2",
+        "icon": "fa-comments",
+        "text": "Real Student Reviews"
+      },
+      {
+        "id": "3",
+        "icon": "fa-hand-holding-dollar",
+        "text": "No Hidden Charges"
+      }
+    ]
+  },
+  "filters": {
+    "priceMin": 3000,
+    "priceMax": 25000,
+    "roomTypes": [
+      "PG",
+      "1RK",
+      "1BHK",
+      "Flat"
+    ],
+    "foodOptions": [
+      "Veg",
+      "Non Veg",
+      "Both"
+    ],
+    "furnishingOptions": [
+      "Furnished",
+      "Unfurnished"
+    ],
+    "acOptions": [
+      "AC",
+      "Non-AC"
+    ]
+  }
+}

@@ -1,0 +1,73 @@
+[
+  {
+    "id": "1",
+    "name": "Admin",
+    "email": "admin@kamrasaathi.in",
+    "passwordHash": "$2a$10$Nq/1iYvTg7KAvM0CeBppiOWClCcdYy50b8Qu9FCzlB1T.3X3O8jDW",
+    "role": "admin"
+  },
+  {
+    "id": "mscwplpe1gcus",
+    "name": "Debug User",
+    "email": "debuguser@example.com",
+    "passwordHash": "$2a$10$cQBHHRhZQCUoS8tJ8TfKReUlFHGtZ8Cs5/QZqmNyWrARWVaKytNo2",
+    "role": "user",
+    "bookings": []
+  },
+  {
+    "id": "mscx2as1pkebs",
+    "name": "Playwright Check",
+    "email": "pwcheck1785742644166@example.com",
+    "passwordHash": "$2a$10$LPEUJrQ9y6KvfFkktDEWKu/Tya7aoLlhk9GEmfrFEPCsTtbr3VP0W",
+    "role": "user",
+    "bookings": []
+  },
+  {
+    "id": "mscx2liqms1ew",
+    "name": "PW User",
+    "email": "pwcp1785742658088@example.com",
+    "passwordHash": "$2a$10$.7jJz5S/ss/EsmBxufFm8.XYH9HOqVEJX893lGIPQaeGkZrMer7j2",
+    "role": "user",
+    "bookings": []
+  },
+  {
+    "id": "mscx381vsegci",
+    "name": "PW Change User",
+    "email": "pwchange1785742687275@example.com",
+    "passwordHash": "$2a$10$B4WwbdfomHKgYWgE9utEXu.nVIBVQIfclsskB7e0uelvjmig.px8a",
+    "role": "user",
+    "bookings": []
+  },
+  {
+    "id": "mscxapsj2qf9r",
+    "name": "UI Test User",
+    "email": "ui-test-1785743036480@example.com",
+    "passwordHash": "$2a$10$fqtDnq6GEZmww9v5g1FLK.5jybgZOxiC.5/10RifPHZMuj4JfBZLW",
+    "role": "user",
+    "bookings": []
+  },
+  {
+    "id": "mscxbonk9ewx4",
+    "name": "UI Final User",
+    "email": "ui-final-1785743081695@example.com",
+    "passwordHash": "$2a$10$J0GLGekGHpXK7CAhQAs57enUtHlnOgbhQQgcysXo0zAf05iPi4SRa",
+    "role": "user",
+    "bookings": []
+  },
+  {
+    "id": "mscxc6pp2p9qf",
+    "name": "UI Login User",
+    "email": "ui-login-1785743103646@example.com",
+    "passwordHash": "$2a$10$jFXBuwasKHvyx778F12WdeeQ2JhVJbuUruoIlkvClRpFF98mtjCRq",
+    "role": "user",
+    "bookings": []
+  },
+  {
+    "id": "mscxh9bzvkfyb",
+    "name": "test",
+    "email": "test@gmail.com",
+    "passwordHash": "$2a$10$n.TdQ9MOsb7XyKy51gqYpee5FKaGlSplGYdpgg7PiJg3VQoSSnLbe",
+    "role": "user",
+    "bookings": []
+  }
+]

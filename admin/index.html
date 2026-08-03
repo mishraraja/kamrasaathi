@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Kamra Saathi</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2><i class="fa-solid fa-house-user"></i> Kamra Saathi</h2>
+        <small>Admin Panel</small>
+      </div>
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-section="dashboard"><i class="fa-solid fa-gauge"></i> Dashboard</button>
+        <button class="nav-item" data-section="site"><i class="fa-solid fa-gear"></i> Site Settings</button>
+        <button class="nav-item" data-section="hero"><i class="fa-solid fa-star"></i> Hero Section</button>
+        <button class="nav-item" data-section="stats"><i class="fa-solid fa-chart-simple"></i> Stats</button>
+        <button class="nav-item" data-section="features"><i class="fa-solid fa-wand-magic-sparkles"></i> Features</button>
+        <button class="nav-item" data-section="rooms"><i class="fa-solid fa-building"></i> Rooms</button>
+        <button class="nav-item" data-section="featured"><i class="fa-solid fa-image"></i> Featured Room</button>
+        <button class="nav-item" data-section="testimonials"><i class="fa-solid fa-quote-left"></i> Testimonials</button>
+        <button class="nav-item" data-section="blogs"><i class="fa-solid fa-newspaper"></i> Blogs</button>
+        <button class="nav-item" data-section="trust"><i class="fa-solid fa-shield"></i> Trust Banner</button>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="nav-item" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="topbar">
+        <h1 id="pageTitle">Dashboard</h1>
+        <div class="topbar-actions">
+          <span class="admin-badge" id="adminName">Admin</span>
+          <a href="/index.html" target="_blank" class="btn btn-secondary btn-sm"><i class="fa-solid fa-eye"></i> View Site</a>
+        </div>
+      </div>
+
+      <!-- Dashboard -->
+      <section class="section-panel active" id="panel-dashboard">
+        <div class="stats-grid">
+          <div class="dash-card"><h3 id="dashRooms">0</h3><p>Total Rooms</p></div>
+          <div class="dash-card"><h3 id="dashActiveRooms">0</h3><p>Active Listings</p></div>
+          <div class="dash-card"><h3 id="dashBlogs">0</h3><p>Blog Posts</p></div>
+          <div class="dash-card"><h3 id="dashTestimonials">0</h3><p>Testimonials</p></div>
+        </div>
+        <div class="panel">
+          <h2>Quick Actions</h2>
+          <p style="color:var(--text-muted);margin-top:8px;">Use the sidebar to edit homepage sections. Changes are saved to the backend and will appear on the site once connected.</p>
+        </div>
+      </section>
+
+      <!-- Site Settings -->
+      <section class="section-panel" id="panel-site">
+        <div class="panel">
+          <div class="panel-header"><h2>Site Settings</h2><button class="btn btn-primary btn-sm" onclick="saveSection('site')"><i class="fa-solid fa-save"></i> Save</button></div>
+          <form id="form-site">
+            <div class="form-row">
+              <div class="form-group"><label>Brand Name</label><input name="brandName" required></div>
+              <div class="form-group"><label>Tagline</label><input name="tagline" required></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Phone</label><input name="phone" required></div>
+              <div class="form-group"><label>Email</label><input name="email" type="email" required></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Support Hours</label><input name="supportHours"></div>
+              <div class="form-group"><label>WhatsApp Number</label><input name="whatsapp"></div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Hero -->
+      <section class="section-panel" id="panel-hero">
+        <div class="panel">
+          <div class="panel-header"><h2>Hero Section</h2><button class="btn btn-primary btn-sm" onclick="saveSection('hero')"><i class="fa-solid fa-save"></i> Save</button></div>
+          <form id="form-hero">
+            <div class="form-group"><label>Title Highlight Word</label><input name="titleHighlight"></div>
+            <div class="form-group"><label>Full Title (without highlight)</label><input name="title"></div>
+            <div class="form-group"><label>Subtitle</label><textarea name="subtitle"></textarea></div>
+            <div class="form-group"><label>Search Placeholder</label><input name="searchPlaceholder"></div>
+            <div class="form-group"><label>Quick Tags (comma separated)</label><input name="quickTags"></div>
+            <div class="form-group"><label>Badge Text</label><input name="badgeText"></div>
+            <div class="form-group"><label>Hero Image URL</label><input name="heroImage"></div>
+            <div class="form-row">
+              <div class="form-group"><label>Students Settled</label><input name="studentsSettled"></div>
+              <div class="form-group"><label>Students Label</label><input name="studentsLabel"></div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="section-panel" id="panel-stats">
+        <div class="panel">
+          <div class="panel-header"><h2>Homepage Stats</h2><button class="btn btn-primary btn-sm" onclick="saveSection('stats')"><i class="fa-solid fa-save"></i> Save All</button></div>
+          <div id="statsEditor"></div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="section-panel" id="panel-features">
+        <div class="panel">
+          <div class="panel-header"><h2>Smart Search Features</h2><button class="btn btn-primary btn-sm" onclick="saveSection('features')"><i class="fa-solid fa-save"></i> Save All</button></div>
+          <div id="featuresEditor"></div>
+        </div>
+      </section>
+
+      <!-- Rooms -->
+      <section class="section-panel" id="panel-rooms">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Room Listings</h2>
+            <button class="btn btn-primary btn-sm" onclick="openRoomModal()"><i class="fa-solid fa-plus"></i> Add Room</button>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr><th>Image</th><th>Title</th><th>Price</th><th>Type</th><th>Status</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="roomsTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Featured Room -->
+      <section class="section-panel" id="panel-featured">
+        <div class="panel">
+          <div class="panel-header"><h2>Featured Room Details</h2><button class="btn btn-primary btn-sm" onclick="saveSection('featuredRoom')"><i class="fa-solid fa-save"></i> Save</button></div>
+          <form id="form-featuredRoom">
+            <div class="form-group"><label>Location</label><input name="location"></div>
+            <div class="form-row">
+              <div class="form-group"><label>Rent (₹/month)</label><input name="rent" type="number"></div>
+              <div class="form-group"><label>Mess Charges (₹)</label><input name="messCharges" type="number"></div>
+            </div>
+            <div class="form-group"><label>Amenities</label><input name="amenities"></div>
+            <div class="form-group"><label>Main Image URL</label><input name="mainImage"></div>
+            <div class="form-group"><label>Thumbnail URLs (comma separated)</label><input name="thumbnails"></div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="section-panel" id="panel-testimonials">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Testimonials</h2>
+            <button class="btn btn-primary btn-sm" onclick="openTestimonialModal()"><i class="fa-solid fa-plus"></i> Add</button>
+          </div>
+          <table class="data-table">
+            <thead><tr><th>Avatar</th><th>Name</th><th>Rating</th><th>Review</th><th>Actions</th></tr></thead>
+            <tbody id="testimonialsTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Blogs -->
+      <section class="section-panel" id="panel-blogs">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Blog Posts</h2>
+            <button class="btn btn-primary btn-sm" onclick="openBlogModal()"><i class="fa-solid fa-plus"></i> Add Blog</button>
+          </div>
+          <table class="data-table">
+            <thead><tr><th>Image</th><th>Title</th><th>Link</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="blogsTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Trust Banner -->
+      <section class="section-panel" id="panel-trust">
+        <div class="panel">
+          <div class="panel-header"><h2>Trust Banner</h2><button class="btn btn-primary btn-sm" onclick="saveTrustBanner()"><i class="fa-solid fa-save"></i> Save</button></div>
+          <form id="form-trust">
+            <div class="form-group"><label>Title</label><input name="title"></div>
+            <div id="trustItemsEditor"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Room Modal -->
+  <div class="modal-overlay" id="roomModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="roomModalTitle">Add Room</h3>
+        <button class="modal-close" onclick="closeModal('roomModal')">&times;</button>
+      </div>
+      <form id="roomForm">
+        <input type="hidden" name="id">
+        <div class="form-group"><label>Title</label><input name="title" required></div>
+        <div class="form-row">
+          <div class="form-group"><label>Price (₹/month)</label><input name="price" type="number" required></div>
+          <div class="form-group"><label>Distance</label><input name="distance" placeholder="0.8 km away"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Room Type</label><select name="roomType"><option>PG</option><option>1RK</option><option>1BHK</option><option>Flat</option></select></div>
+          <div class="form-group"><label>Image URL</label><input name="image"></div>
+        </div>
+        <div class="form-group"><label>Tags (comma separated)</label><input name="tags"><p class="tags-input-hint">e.g. Mess Included, AC Room</p></div>
+        <div class="checkbox-row"><input type="checkbox" name="mess" id="roomMess"><label for="roomMess">Mess Available</label></div>
+        <div class="checkbox-row"><input type="checkbox" name="ac" id="roomAc"><label for="roomAc">AC Room</label></div>
+        <div class="checkbox-row"><input type="checkbox" name="foodIncluded" id="roomFood"><label for="roomFood">Food Included</label></div>
+        <div class="checkbox-row"><input type="checkbox" name="verified" id="roomVerified" checked><label for="roomVerified">Verified</label></div>
+        <div class="checkbox-row"><input type="checkbox" name="active" id="roomActive" checked><label for="roomActive">Active Listing</label></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('roomModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Room</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Testimonial Modal -->
+  <div class="modal-overlay" id="testimonialModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="testimonialModalTitle">Add Testimonial</h3>
+        <button class="modal-close" onclick="closeModal('testimonialModal')">&times;</button>
+      </div>
+      <form id="testimonialForm">
+        <input type="hidden" name="id">
+        <div class="form-group"><label>Name</label><input name="name" required></div>
+        <div class="form-group"><label>Avatar URL</label><input name="avatar"></div>
+        <div class="form-group"><label>Rating (1-5)</label><input name="rating" type="number" min="1" max="5" value="5"></div>
+        <div class="form-group"><label>Review Text</label><textarea name="text" required></textarea></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('testimonialModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Blog Modal -->
+  <div class="modal-overlay" id="blogModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="blogModalTitle">Add Blog</h3>
+        <button class="modal-close" onclick="closeModal('blogModal')">&times;</button>
+      </div>
+      <form id="blogForm">
+        <input type="hidden" name="id">
+        <div class="form-group"><label>Title</label><input name="title" required></div>
+        <div class="form-group"><label>Image URL</label><input name="image"></div>
+        <div class="form-group"><label>Link</label><input name="link" placeholder="#"></div>
+        <div class="checkbox-row"><input type="checkbox" name="active" id="blogActive" checked><label for="blogActive">Published</label></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('blogModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="admin.js"></script>
+</body>
+</html>
