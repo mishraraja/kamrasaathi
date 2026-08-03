@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kamra Saathi - Find Verified Rooms & PGs</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="logo">
+      <i class="fa-solid fa-house-user logo-icon"></i>
+      <div class="logo-text">
+        <span class="brand-name">Kamra Saathi</span>
+        <span class="tagline">Find. Compare. Move In.</span>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="#">Rooms</a>
+      <a href="#">Compare</a>
+      <a href="#">Blogs</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <span class="phone"><i class="fa-solid fa-phone"></i> +91 98765 43210</span>
+
+      <!-- Guest Actions -->
+      <div id="guestAuthActions">
+        <button id="loginButton" class="btn btn-outline btn-sm">Login</button>
+        <button id="registerButton" class="btn btn-dark btn-sm">Register</button>
+      </div>
+
+      <!-- Logged In User Dropdown Menu -->
+      <div id="userMenu" class="user-menu-container" style="display:none;">
+        <button id="userDropdownToggle" class="btn btn-light btn-sm user-toggle-btn">
+          <span id="authUserBadge">Hi User</span> <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div id="userDropdownMenu" class="dropdown-menu">
+          <button id="viewProfileBtn" class="dropdown-item"><i class="fa-solid fa-user"></i> View Profile</button>
+          <button id="changePasswordButton" class="dropdown-item"><i class="fa-solid fa-key"></i> Change Password</button>
+          <div class="dropdown-divider"></div>
+          <button id="logoutButton" class="dropdown-item logout-item"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-container">
+    <div class="hero-left">
+      <h1 class="hero-title">Find <span class="highlight">Verified</span> Rooms & PGs Near Your College</h1>
+      <p class="hero-subtitle">Search rooms, compare options, and connect with our team easily.</p>
+      
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" placeholder="Search by Area / College / Coaching">
+        <button class="btn btn-purple">Find Rooms</button>
+      </div>
+
+      <div class="quick-tags">
+        <span class="tag">Dwarka</span>
+        <span class="tag">DU</span>
+        <span class="tag">Mukherjee Nagar</span>
+        <span class="tag">Noida</span>
+        <span class="tag">Kota</span>
+      </div>
+
+      <div class="hero-buttons">
+        <button class="btn btn-purple-lg"><i class="fa-solid fa-magnifying-glass"></i> Find Rooms</button>
+        <button class="btn btn-outline"><i class="fa-solid fa-headset"></i> Talk to Team</button>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="badge badge-top"><i class="fa-solid fa-circle-check"></i> Verified Student Housing Platform</div>
+      <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80" alt="Modern Room" class="hero-img">
+      <div class="badge badge-bottom">
+        <div class="avatar-group">
+          <span class="avatar">👨</span>
+          <span class="avatar">👩</span>
+          <span class="avatar">🧑</span>
+        </div>
+        <div>
+          <strong>500+</strong><br>
+          <small>Students Settled</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Metrics / Stats -->
+  <section class="stats-section">
+    <div class="stat-card">
+      <div class="stat-icon icon-purple"><i class="fa-solid fa-users"></i></div>
+      <div><h3>500+</h3><p>Students Settled</p></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon icon-blue"><i class="fa-solid fa-building-circle-check"></i></div>
+      <div><h3>50+</h3><p>Verified Rooms</p></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon icon-green"><i class="fa-solid fa-location-dot"></i></div>
+      <div><h3>10+</h3><p>Areas Covered</p></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon icon-orange"><i class="fa-solid fa-shield-halved"></i></div>
+      <div><h3>100%</h3><p>Verified Listings</p></div>
+    </div>
+  </section>
+
+  <!-- Smart Search Features -->
+  <section class="section-container">
+    <h3 class="section-title text-center">Smart Search Features</h3>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon icon-purple"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <div><h4>Live Search Results</h4><p>Dwarka mein 7 rooms available</p></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-blue"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <div><h4>Smart Suggestions</h4><p>Personalized recommendations</p></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-green"><i class="fa-solid fa-clock-rotate-left"></i></div>
+        <div><h4>Recent Searches</h4><p>Quick access to viewed locations</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters & Verified Rooms Grid -->
+  <section class="main-content-layout">
+    <!-- Sidebar Filters -->
+    <aside class="sidebar-filters">
+      <h3>Filters & Sort</h3>
+      <div class="filter-group">
+        <label><i class="fa-solid fa-tag"></i> Price ₹3000 - ₹25000</label>
+        <label><i class="fa-solid fa-house"></i> PG / 1RK / 1BHK / Flat</label>
+        <label><i class="fa-solid fa-utensils"></i> Mess Available</label>
+        <label><i class="fa-solid fa-bowl-food"></i> Veg / Non Veg / Both</label>
+        <label><i class="fa-solid fa-couch"></i> Furnished / Unfurnished</label>
+        <label><i class="fa-solid fa-snowflake"></i> AC / Non-AC</label>
+      </div>
+      <div class="sort-buttons">
+        <button class="btn btn-purple btn-sm">Price Low to High</button>
+        <button class="btn btn-light btn-sm">Price High to Low</button>
+        <button class="btn btn-light btn-sm">Distance Nearest</button>
+      </div>
+    </aside>
+
+    <!-- Verified Rooms Grid -->
+    <main class="rooms-container">
+      <div class="section-header">
+        <h3>Verified Rooms</h3>
+        <a href="#" class="view-all">View All</a>
+      </div>
+      <div class="rooms-grid">
+        <!-- Room 1 -->
+        <div class="room-card">
+          <div class="card-img-wrapper">
+            <span class="badge-verified">Verified</span>
+            <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=400&q=80" alt="Room">
+          </div>
+          <div class="card-body">
+            <h4>Modern PG in Dwarka</h4>
+            <p class="distance">0.8 km away</p>
+            <p class="price"><strong>₹8,500</strong> /month</p>
+            <div class="tags">
+              <span>Mess Included</span>
+              <span>AC Room</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-purple btn-sm">View Details</button>
+              <button class="btn btn-light btn-sm">Compare</button>
+            </div>
+          </div>
+        </div>
+        <!-- Room 2 -->
+        <div class="room-card">
+          <div class="card-img-wrapper">
+            <span class="badge-verified">Verified</span>
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=400&q=80" alt="Room">
+          </div>
+          <div class="card-body">
+            <h4>1RK Near DU</h4>
+            <p class="distance">1.2 km away</p>
+            <p class="price"><strong>₹12,000</strong> /month</p>
+            <div class="tags">
+              <span>No Mess</span>
+              <span>Non-AC</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-purple btn-sm">View Details</button>
+              <button class="btn btn-light btn-sm">Compare</button>
+            </div>
+          </div>
+        </div>
+        <!-- Room 3 -->
+        <div class="room-card">
+          <div class="card-img-wrapper">
+            <span class="badge-verified">Verified</span>
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=400&q=80" alt="Room">
+          </div>
+          <div class="card-body">
+            <h4>Student Flat in Kota</h4>
+            <p class="distance">500m away</p>
+            <p class="price"><strong>₹15,000</strong> /month</p>
+            <div class="tags">
+              <span>Food Available</span>
+              <span>AC Room</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-purple btn-sm">View Details</button>
+              <button class="btn btn-light btn-sm">Compare</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <!-- Comparison & Room Details Section -->
+  <section class="details-compare-section">
+    <!-- Compare Rooms Table -->
+    <div class="compare-card">
+      <h3 class="section-subtitle">Compare Rooms</h3>
+      <div class="table-responsive">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Room 1</th>
+              <th>Room 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="feature-name">Rent</td>
+              <td class="highlight-val">₹8,500</td>
+              <td>₹12,000</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Distance</td>
+              <td>0.8 km</td>
+              <td>1.2 km</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Room Type</td>
+              <td><span class="pill">PG</span></td>
+              <td><span class="pill">1RK</span></td>
+            </tr>
+            <tr>
+              <td class="feature-name">Mess</td>
+              <td><span class="status-yes">Included</span></td>
+              <td><span class="status-no">No</span></td>
+            </tr>
+            <tr>
+              <td class="feature-name">AC</td>
+              <td><span class="status-yes">Yes</span></td>
+              <td><span class="status-no">No</span></td>
+            </tr>
+            <tr>
+              <td class="feature-name">Food Included</td>
+              <td><span class="status-yes">Yes</span></td>
+              <td><span class="status-no">No</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Room Details Card -->
+    <div class="details-card">
+      <h3 class="section-subtitle">Room Details</h3>
+      <div class="details-grid">
+        <div class="details-gallery">
+          <div class="main-img-box">
+            <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=400&q=80" alt="Main Room View">
+          </div>
+          <div class="thumb-group">
+            <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=200&q=80" alt="Bathroom View">
+            <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=200&q=80" alt="Study Table View">
+          </div>
+        </div>
+
+        <div class="details-info">
+          <p class="location-text"><i class="fa-solid fa-location-dot"></i> Mukherjee Nagar, Near Coaching Hub, Delhi</p>
+          <div class="info-row">
+            <i class="fa-solid fa-house"></i>
+            <span><strong>Rent:</strong> ₹10,500 <small>/month</small></span>
+          </div>
+          <div class="info-row">
+            <i class="fa-solid fa-utensils"></i>
+            <span><strong>Mess Charges:</strong> ₹2,000</span>
+          </div>
+          <div class="info-row align-start">
+            <i class="fa-solid fa-list-check"></i>
+            <span><strong>Amenities:</strong> WiFi, AC, RO Water, Study Table</span>
+          </div>
+          <button class="btn btn-purple btn-full"><i class="fa-solid fa-paper-plane"></i> Contact Team</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-container bg-light-purple review-section">
+    <h3 class="section-title text-center">What Students Say</h3>
+    <div class="review-form-wrapper">
+      <form id="reviewForm" class="review-form" style="display:none;">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="reviewRoomSelect">Booked Room</label>
+            <select id="reviewRoomSelect" required></select>
+          </div>
+          <div class="form-group">
+            <label for="reviewRating">Rating</label>
+            <select id="reviewRating" required>
+              <option value="5">5 - Excellent</option>
+              <option value="4">4 - Good</option>
+              <option value="3">3 - Average</option>
+              <option value="2">2 - Poor</option>
+              <option value="1">1 - Very Poor</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="reviewText">Review</label>
+          <textarea id="reviewText" rows="4" placeholder="Write your honest review about the room you booked" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-purple">Submit Review</button>
+      </form>
+      <p id="reviewMessage" class="form-message">Login and book a room to leave a review.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="user-header">
+          <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80" alt="Rahul" class="avatar-img">
+          <div class="user-meta">
+            <h5 class="user-name">Rahul</h5>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="review-text">"Kamra Saathi made finding a student room simple, safe, and fast."</p>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="user-header">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Priya" class="avatar-img">
+          <div class="user-meta">
+            <h5 class="user-name">Priya</h5>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="review-text">"Kamra Saathi made finding a student room simple, safe, and fast."</p>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="user-header">
+          <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=120&q=80" alt="Aman" class="avatar-img">
+          <div class="user-meta">
+            <h5 class="user-name">Aman</h5>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="review-text">"Kamra Saathi made finding a student room simple, safe, and fast."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blogs & Trust Banner Section -->
+  <section class="blogs-trust-section">
+    <!-- Blogs Side -->
+    <div class="blogs-container">
+      <div class="section-header-row">
+        <h3 class="section-subtitle">Latest Blogs</h3>
+        <a href="#" class="view-all-link">View All</a>
+      </div>
+      <div class="blogs-grid">
+        <div class="blog-card">
+          <div class="blog-img-box">
+            <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=300&q=80" alt="Blog Image">
+          </div>
+          <h5 class="blog-title">PG lene se pehle 5 cheezein check karein</h5>
+          <a href="#" class="read-more">Read More &rarr;</a>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-img-box">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=300&q=80" alt="Blog Image">
+          </div>
+          <h5 class="blog-title">Mess quality kaise check karein</h5>
+          <a href="#" class="read-more">Read More &rarr;</a>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-img-box">
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=300&q=80" alt="Blog Image">
+          </div>
+          <h5 class="blog-title">Student budget guide</h5>
+          <a href="#" class="read-more">Read More &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust Banner Side -->
+    <div class="trust-banner">
+      <h3 class="trust-title">Why Students Trust Kamra Saathi</h3>
+      <div class="trust-features-list">
+        <div class="trust-item">
+          <div class="trust-icon-box"><i class="fa-solid fa-user-shield"></i></div>
+          <p>Verified by Kamra Saathi Team</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon-box"><i class="fa-solid fa-comments"></i></div>
+          <p>Real Student Reviews</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon-box"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+          <p>No Hidden Charges</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo light">
+          <i class="fa-solid fa-house-user logo-icon"></i>
+          <span class="brand-name">Kamra Saathi</span>
+        </div>
+        <p>Helping students find verified rooms easily.</p>
+        <div class="social-icons">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-youtube"></i>
+          <i class="fa-brands fa-twitter"></i>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Find Rooms</a></li>
+          <li><a href="#">Compare</a></li>
+          <li><a href="#">Blogs</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-support">
+        <h4>Support</h4>
+        <p>support@kamrasaathi.in</p>
+        <p>+91 98765 43210</p>
+        <p>Mon - Sat: 10AM - 7PM</p>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Subscribe to Newsletter</h4>
+        <p>Get room updates, new listings and student tips.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email">
+          <button class="btn btn-purple">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Kamra Saathi. All rights reserved.</p>
+      <div>
+        <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="#" class="whatsapp-float">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Auth Modal -->
+  <div id="authModal" class="modal-overlay">
+    <div class="modal-card">
+      <button id="modalCloseBtn" class="modal-close">&times;</button>
+      
+      <div class="modal-tabs">
+        <button id="tabLoginBtn" class="tab-btn active">Login</button>
+        <button id="tabRegisterBtn" class="tab-btn">Register</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="loginForm" class="auth-form modal-form active">
+          <h4>Welcome Back</h4>
+          <div class="input-group">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" name="email" placeholder="Email" required>
+          </div>
+          <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" name="password" placeholder="Password" required>
+          </div>
+          <button type="submit" class="btn btn-purple btn-full">Login</button>
+        </form>
+
+        <form id="registerForm" class="auth-form modal-form">
+          <h4>Create Student Account</h4>
+          <div class="input-group">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" name="name" placeholder="Full name" required>
+          </div>
+          <div class="input-group">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" name="email" placeholder="Email" required>
+          </div>
+          <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" name="password" placeholder="Password (min 6 chars)" required>
+          </div>
+          <button type="submit" class="btn btn-purple btn-full">Register</button>
+        </form>
+
+        <p id="authMessage" class="form-message"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Change Password Modal -->
+  <div id="changePasswordModal" class="modal-overlay">
+    <div class="modal-card small-card">
+      <button id="changePasswordCloseBtn" class="modal-close">&times;</button>
+      <div class="modal-body">
+        <form id="changePasswordForm" class="auth-form modal-form active">
+          <h4>Change Password</h4>
+          <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" name="currentPassword" placeholder="Current password" required>
+          </div>
+          <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" name="newPassword" placeholder="New password (min 6 chars)" required>
+          </div>
+          <button type="submit" class="btn btn-dark btn-full">Update Password</button>
+        </form>
+        <p id="changePasswordMessage" class="form-message"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- View Profile Modal -->
+  <div id="profileModal" class="modal-overlay">
+    <div class="modal-card small-card">
+      <button id="profileCloseBtn" class="modal-close">&times;</button>
+      <div class="modal-body profile-modal-body">
+        <div class="profile-avatar-large">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <h4>Student Profile</h4>
+        <div class="profile-info-box">
+          <p><strong>Name:</strong> <span id="profileNameDisplay">--</span></p>
+          <p><strong>Email:</strong> <span id="profileEmailDisplay">--</span></p>
+        </div>
+        <button id="profileCloseAction" class="btn btn-purple btn-full" style="margin-top: 16px;">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    const authModal = document.getElementById('authModal');
+    const changePasswordModal = document.getElementById('changePasswordModal');
+    const profileModal = document.getElementById('profileModal');
+    const loginButton = document.getElementById('loginButton');
+    const registerButton = document.getElementById('registerButton');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const changePasswordCloseBtn = document.getElementById('changePasswordCloseBtn');
+    const profileCloseBtn = document.getElementById('profileCloseBtn');
+    const profileCloseAction = document.getElementById('profileCloseAction');
+    const tabLoginBtn = document.getElementById('tabLoginBtn');
+    const tabRegisterBtn = document.getElementById('tabRegisterBtn');
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const authMessage = document.getElementById('authMessage');
+
+    // Dropdown elements
+    const userDropdownToggle = document.getElementById('userDropdownToggle');
+    const userDropdownMenu = document.getElementById('userDropdownMenu');
+    const viewProfileBtn = document.getElementById('viewProfileBtn');
+    const profileNameDisplay = document.getElementById('profileNameDisplay');
+    const profileEmailDisplay = document.getElementById('profileEmailDisplay');
+
+    // Toggle Dropdown visibility
+    if (userDropdownToggle) {
+      userDropdownToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        userDropdownMenu.classList.toggle('active');
+      });
+    }
+
+    window.addEventListener('click', () => {
+      if (userDropdownMenu && userDropdownMenu.classList.contains('active')) {
+        userDropdownMenu.classList.remove('active');
+      }
+    });
+
+    function openModal(tab = 'login') {
+      authModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      switchTab(tab);
+    }
+
+    function openChangePasswordModal() {
+      changePasswordModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      if(userDropdownMenu) userDropdownMenu.classList.remove('active');
+    }
+
+    function openProfileModal() {
+      if(profileModal) {
+        // Fetch values from local storage or app state if available, or parse from badge text
+        const badgeText = document.getElementById('authUserBadge').innerText;
+        profileNameDisplay.innerText = badgeText.replace('Hi ', '') || 'Raja Kumar Mishra';
+        profileEmailDisplay.innerText = localStorage.getItem('userEmail') || 'student@kamrasaathi.in';
+        profileModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      if(userDropdownMenu) userDropdownMenu.classList.remove('active');
+    }
+
+    function closeModal() {
+      authModal.classList.remove('active');
+      changePasswordModal.classList.remove('active');
+      if(profileModal) profileModal.classList.remove('active');
+      document.body.style.overflow = '';
+      if (authMessage) authMessage.innerText = '';
+      if (document.getElementById('changePasswordMessage')) {
+        document.getElementById('changePasswordMessage').innerText = '';
+      }
+    }
+
+    function switchTab(tab) {
+      if (tab === 'login') {
+        tabLoginBtn.classList.add('active');
+        tabRegisterBtn.classList.remove('active');
+        loginForm.classList.add('active');
+        registerForm.classList.remove('active');
+      } else {
+        tabRegisterBtn.classList.add('active');
+        tabLoginBtn.classList.remove('active');
+        registerForm.classList.add('active');
+        loginForm.classList.remove('active');
+      }
+      if (authMessage) authMessage.innerText = '';
+    }
+
+    if (loginButton) loginButton.addEventListener('click', () => openModal('login'));
+    if (registerButton) registerButton.addEventListener('click', () => openModal('register'));
+    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+    if (changePasswordCloseBtn) changePasswordCloseBtn.addEventListener('click', closeModal);
+    if (profileCloseBtn) profileCloseBtn.addEventListener('click', closeModal);
+    if (profileCloseAction) profileCloseAction.addEventListener('click', closeModal);
+    if (viewProfileBtn) viewProfileBtn.addEventListener('click', openProfileModal);
+
+    const changePassBtnElement = document.getElementById('changePasswordButton');
+    if (changePassBtnElement) {
+      changePassBtnElement.addEventListener('click', openChangePasswordModal);
+    }
+
+    if (tabLoginBtn) tabLoginBtn.addEventListener('click', () => switchTab('login'));
+    if (tabRegisterBtn) tabRegisterBtn.addEventListener('click', () => switchTab('register'));
+
+    window.addEventListener('click', (e) => {
+      if (e.target === authModal || e.target === changePasswordModal || e.target === profileModal) closeModal();
+    });
+  </script>
+</body>
+</html>
