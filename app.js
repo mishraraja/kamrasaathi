@@ -1,5 +1,14 @@
-const API = '/api/content';
-const AUTH_API = '/api/auth';
+const API_BASE_URL = (() => {
+  const hostname = window.location.hostname;
+  if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    return 'http://localhost:3000/api';
+  }
+
+  return 'https://kamrasaathi-backend.onrender.com/api';
+})();
+
+const API = `${API_BASE_URL}/content`;
+const AUTH_API = `${API_BASE_URL}/auth`;
 
 function formatPrice(amount) {
   return `₹${Number(amount).toLocaleString('en-IN')}`;

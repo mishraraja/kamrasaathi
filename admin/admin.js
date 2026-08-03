@@ -1,4 +1,13 @@
-const API = '/api';
+const API_BASE_URL = (() => {
+  const hostname = window.location.hostname;
+  if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    return 'http://localhost:3000/api';
+  }
+
+  return 'https://kamrasaathi-backend.onrender.com/api';
+})();
+
+const API = API_BASE_URL;
 let content = {};
 let token = localStorage.getItem('adminToken');
 
